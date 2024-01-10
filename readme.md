@@ -1,4 +1,4 @@
-# discord-nuker-py | V 1.0.1
+# discord-nuker-py | V 1.1.5
 
 ## Overview
 This piece of code will obliterate any server you want. EDUCATIONAL PURPOSES ONLY!
@@ -7,13 +7,13 @@ This piece of code will obliterate any server you want. EDUCATIONAL PURPOSES ONL
 - Renaming server
 - Deleting all existing channels
 - Making new channels
-- Spamming with your custom message
+- Spamming with your custom message [Server and DM too]
 
 ## Commands
 ### NO COMMANDS! JUST START THE CODE IN VSCODE AND IT WILL DESTROY!
 # Instructions:
 - If you don't want your server destroyed, add you server ID to excluded_servers[your_id_in_the_main_py_code] without the '' or ""
-- Replace bot.run's 
+- Replace bot.run's (YOUR_BOT_TOKEN) with your bot's actual token
 - Add the bot to the server you want to destroy
 - Start the code in VSCODE
 - Destroy

